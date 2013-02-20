@@ -7,14 +7,14 @@ try {
 }
 $yhteys->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$kysely = $yhteys->prepare("SELECT * FROM tuotteet");
+$kysely = $yhteys->prepare("SELECT id, nimi, osoite FROM asiakkaat");
 $kysely->execute();
 
 echo "<table border>";
 while ($rivi = $kysely->fetch()) {
 	echo "<tr>";
 	echo "<td>" . $rivi["nimi"] . "</td>";
-	echo "<td>" . $rivi["hinta"] . "</td>";
+	echo "<td>" . $rivi["osoite"] . "</td>";
 	echo "</tr>";
 }
 echo "</table>";
